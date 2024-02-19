@@ -2,7 +2,7 @@
 # Data Set Details
 
 ## Origin of Data Set
-The data set used in this analysis originates from [NYU libraries](URL). It provides information about citibike data including the trip duration, start time, station ID, station name and longitude, as well as the stop time, station ID, name and longitude. It also informs us about the bike ID, user type, birth year, and gender.
+The data set used in this analysis originates from [NYU libraries](https://guides.nyu.edu/c.php?g=276966&p=1846654). It provides information about citibike data including the trip duration, start time, station ID, station name and longitude, as well as the stop time, station ID, name and longitude. It also informs us about the bike ID, user type, birth year, and gender.
 
 
 ## Format of Original Data File
@@ -35,6 +35,7 @@ Here are the first 20 rows of the raw data:
 
 
 # Data Scrubbing Details
+ #### I only used python and the CSV model for scrubbing
 1.  Removed any rows with missing values (indicated by a blank space) from all columns. This helped organise the data more clearly. 
 2. Organised the data into seperate columns with appropriate space so that excel could import the values correctly by calculating the column widths needed for each column. 
    ```python 
@@ -58,8 +59,7 @@ Here are the first 20 rows of the raw data:
         for row in data[1:]:
             formatted_row = [f"{str(cell):<{width+1}}" for cell, width in zip(row, column_widths)]
             writer.writerow(formatted_row)
-
-
+   
 ## Problems in the Original Data
  - **Problem 1:** The raw data I accquired was quite confusing to read, with only commas seprating the heading and values, it was hard to tell which value belonged in which column. I particularly had problem with the start and stop time (2016-08-01 00:09:40,2016-08-01 00:12:25)
  - **Problem 2:** There were some missing values which made the dataset more confusing to read. 
